@@ -1,0 +1,31 @@
+
+
+{% extends "base.html" %}
+
+
+{% block show %}
+    <h3>Reuslt</h3>
+    <form action='/home' method='POST' novalidate>
+        {{ form.hidden_tag() }}
+        
+        <table>
+            <thead>
+               <tr>
+                  <th>Username</th>
+                  <th>Name</th>
+                  <th>Email</th>
+               </tr>
+            </thead>
+   
+            <tbody>
+               {% for student in students %}
+                  <tr>
+                     <td>{{ new_user.username }}</td>
+                     <td>{{ new_user.name }}</td>
+                     <td>{{ new_user.email }}</td>
+                  </tr>
+               {% endfor %}
+            </tbody>
+         </table>
+    </form>
+{% endblock %}
