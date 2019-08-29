@@ -4,6 +4,10 @@
 
 
 {% block show %}
+   <h1>Hi, {{ current_user.username }}!</h1>
+   {% for post in posts %}
+   <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
+   {% endfor %}
     <h3>Reuslt</h3>
     <form action='/home' method='POST' novalidate>
         {{ form.hidden_tag() }}
