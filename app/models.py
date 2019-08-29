@@ -13,16 +13,15 @@ class User(db.Model):
     id=Column(Integer,primary_key=True)
     username=Column(String(64),index=True , unique=True)
     email=Column(String(120),index=True , unique=True)
-    post=relationship('Post',backref='users',lazy='dynamic')
+    #post=relationship('Post',backref='users',lazy='dynamic')
     password_hash=Column(String(128))
  
     def __repr__(self):
         return'<User {}>'.format(self.username)
     
-    def __init__(self,username,email,name,password):
+    def __init__(self,username,email,password):
         self.username=username
         self.email=email
-        self.name=name
         self.password_hash=hash(password)
 
 

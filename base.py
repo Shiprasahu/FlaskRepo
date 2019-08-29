@@ -18,4 +18,5 @@ from config import Config
 engine = create_engine('sqlite:///flaskblog.db',echo=True)
 #engine = create_engine(Config.SQLALCHEMY_DATABASE_URI,echo=True)
 Session = sessionmaker(bind=engine)
+session = Session()
 Base = declarative_base()

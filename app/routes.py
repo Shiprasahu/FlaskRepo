@@ -7,8 +7,11 @@ from app import db
 from app.forms import LoginForm, RegisterForm
 #from werkzeug.urls import url_parse
 
+from base import session
+
 from flask_sqlalchemy import SQLAlchemy
 from app.models import User
+
 
 
 @app.route('/')
@@ -41,8 +44,8 @@ def signup():
     form = RegisterForm()
     if form.validate_on_submit():
         new_user = User(form.username.data,form.email.data,form.password.data)
-        db.session.add(new_user)
-        db.session.commit()
+        session.add(new_user)
+        session.commit()
         flash('Thanks for registrering, You are a registered user now !!')
         return redirect('/login')
     return render_template('register.html', titles = 'Register', form = form)
