@@ -35,7 +35,7 @@ def login():
             #next_page = url_for('/')
         #return redirect(next_page)
         flash('Login requested for user {}, remember_me={}'.format(form.username.data, form.remember_me.data))
-        return redirect('/home')
+        return redirect('/search')
     return render_template('login.html', title='Log In', form=form)
 
 
